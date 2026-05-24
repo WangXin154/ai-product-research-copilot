@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-05-24T23:48:49.007890",
+  "repo_summary": [
+    {
+      "repo_name": "streamlit/streamlit",
+      "feedback_count": 112,
+      "comment_count": 11,
+      "issue_count": 101,
+      "earliest_created_at": "2025-01-10T10:00:00Z",
+      "latest_created_at": "2026-05-22T21:22:34Z"
+    },
+    {
+      "repo_name": "langchain-ai/langchain",
+      "feedback_count": 111,
+      "comment_count": 10,
+      "issue_count": 101,
+      "earliest_created_at": "2025-03-05T08:00:00Z",
+      "latest_created_at": "2026-05-24T22:18:38Z"
+    },
+    {
+      "repo_name": "open-webui/open-webui",
+      "feedback_count": 110,
+      "comment_count": 10,
+      "issue_count": 100,
+      "earliest_created_at": "2026-05-13T01:29:53Z",
+      "latest_created_at": "2026-05-24T18:55:54Z"
+    },
+    {
+      "repo_name": "run-llama/llama_index",
+      "feedback_count": 105,
+      "comment_count": 5,
+      "issue_count": 100,
+      "earliest_created_at": "2026-03-31T07:14:50Z",
+      "latest_created_at": "2026-05-24T06:43:58Z"
+    },
+    {
+      "repo_name": "gradio-app/gradio",
+      "feedback_count": 103,
+      "comment_count": 2,
+      "issue_count": 101,
+      "earliest_created_at": "2025-02-01T09:30:00Z",
+      "latest_created_at": "2026-05-24T18:07:16Z"
+    }
+  ],
+  "comment_summary": [
+    {
+      "repo_name": "streamlit/streamlit",
+      "comment_count": 11
+    },
+    {
+      "repo_name": "langchain-ai/langchain",
+      "comment_count": 10
+    },
+    {
+      "repo_name": "open-webui/open-webui",
+      "comment_count": 10
+    },
+    {
+      "repo_name": "run-llama/llama_index",
+      "comment_count": 5
+    },
+    {
+      "repo_name": "gradio-app/gradio",
+      "comment_count": 2
+    }
+  ]
+}

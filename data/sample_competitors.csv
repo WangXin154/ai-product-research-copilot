@@ -1,0 +1,7 @@
+competitor_name,feature_name,feature_category,coverage,strength,weakness,source_url
+Streamlit,Data app builder,App Builder,high,Easy Python-first data app creation,Limited built-in AI evaluation workflow,https://streamlit.io
+Gradio,AI demo builder,App Builder,high,Fast model demo sharing,Limited product research workflow,https://www.gradio.app
+LangChain,LLM workflow framework,Agent Framework,high,Large ecosystem and integrations,Complex onboarding for new users,https://www.langchain.com
+Open WebUI,LLM chat interface,AI Product,medium,Strong self-hosted chat UI,Less focused on product research analytics,https://openwebui.com
+LlamaIndex,Data framework for LLM apps,RAG Framework,high,Strong data indexing and RAG abstractions,Not a BI decision platform,https://www.llamaindex.ai
+

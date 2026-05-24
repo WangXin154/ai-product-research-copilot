@@ -1,0 +1,7 @@
+# MVP data layer uses Python standard library only.
+# Optional packages can be added later:
+# pandas
+# duckdb
+# streamlit
+# plotly
+

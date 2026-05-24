@@ -1,0 +1,51 @@
+[
+  {
+    "feedback_id": "sample_fb_001",
+    "source": "github",
+    "repo_name": "streamlit/streamlit",
+    "issue_id": "1001",
+    "comment_id": null,
+    "title": "App crashes when uploading large CSV files",
+    "body": "The app crashes when I upload a CSV larger than 100MB. The error message is not clear.",
+    "labels": "[\"bug\", \"file-upload\"]",
+    "state": "open",
+    "author": "sample_user_1",
+    "created_at": "2025-01-10T10:00:00Z",
+    "updated_at": "2025-01-12T12:00:00Z",
+    "comments_count": 2,
+    "url": "https://github.com/streamlit/streamlit/issues/1001"
+  },
+  {
+    "feedback_id": "sample_fb_002",
+    "source": "github",
+    "repo_name": "gradio-app/gradio",
+    "issue_id": "2001",
+    "comment_id": null,
+    "title": "Feature request: better dashboard export",
+    "body": "It would be helpful to export experiment dashboards as images or markdown reports.",
+    "labels": "[\"enhancement\"]",
+    "state": "open",
+    "author": "sample_user_2",
+    "created_at": "2025-02-01T09:30:00Z",
+    "updated_at": "2025-02-03T11:20:00Z",
+    "comments_count": 1,
+    "url": "https://github.com/gradio-app/gradio/issues/2001"
+  },
+  {
+    "feedback_id": "sample_fb_003",
+    "source": "github",
+    "repo_name": "langchain-ai/langchain",
+    "issue_id": "3001",
+    "comment_id": null,
+    "title": "Documentation is confusing for new users",
+    "body": "I am new to LangChain and cannot understand which API version the examples are using.",
+    "labels": "[\"documentation\"]",
+    "state": "closed",
+    "author": "sample_user_3",
+    "created_at": "2025-03-05T08:00:00Z",
+    "updated_at": "2025-03-08T14:00:00Z",
+    "comments_count": 5,
+    "url": "https://github.com/langchain-ai/langchain/issues/3001"
+  }
+]
+
