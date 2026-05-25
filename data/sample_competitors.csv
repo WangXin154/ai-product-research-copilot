@@ -1,7 +1,16 @@
-competitor_name,feature_name,feature_category,coverage,strength,weakness,source_url
-Streamlit,Data app builder,App Builder,high,Easy Python-first data app creation,Limited built-in AI evaluation workflow,https://streamlit.io
-Gradio,AI demo builder,App Builder,high,Fast model demo sharing,Limited product research workflow,https://www.gradio.app
-LangChain,LLM workflow framework,Agent Framework,high,Large ecosystem and integrations,Complex onboarding for new users,https://www.langchain.com
-Open WebUI,LLM chat interface,AI Product,medium,Strong self-hosted chat UI,Less focused on product research analytics,https://openwebui.com
-LlamaIndex,Data framework for LLM apps,RAG Framework,high,Strong data indexing and RAG abstractions,Not a BI decision platform,https://www.llamaindex.ai
-
+﻿competitor_name,feature_name,feature_category,coverage,strength,weakness,source_url
+Dovetail,Research repository,feedback_analysis,high,Strong qualitative research repository and tagging workflow,Less focused on AI-generated PRD and engineering issue evidence,https://dovetail.com
+Dovetail,Insight reports,export,high,Good research report sharing and collaboration,Limited agentic workflow automation for PRD generation,https://dovetail.com
+Productboard,Feature prioritization,prd_generation,medium,Strong product planning and prioritization workflow,AI evidence coverage and hallucination risk are not core capabilities,https://www.productboard.com
+Productboard,Roadmap dashboard,bi_dashboard,medium,Good roadmap and prioritization visualization,Less focused on raw developer feedback analysis,https://www.productboard.com
+LangSmith,LLM trace monitoring,ai_evaluation,high,Strong observability for LLM applications,Not a product research or PRD generation platform,https://www.langchain.com/langsmith
+LangSmith,Dataset evaluation,ai_evaluation,high,Useful evaluation datasets and model run comparison,Limited product opportunity scoring workflow,https://www.langchain.com/langsmith
+LangChain,Agent workflow framework,agent_workflow,high,Large ecosystem for tools chains and agent orchestration,Requires significant engineering work to become product research platform,https://www.langchain.com
+LlamaIndex,Data framework for LLM apps,topic_discovery,medium,Strong data indexing and RAG abstractions,Not focused on BI decision dashboards,https://www.llamaindex.ai
+Open WebUI,Self-hosted LLM interface,feedback_analysis,low,Strong open-source LLM chat UI,Not designed for structured product research workflows,https://openwebui.com
+Open WebUI,Model management,human_review,medium,Useful controls for local AI workflows,Does not provide PRD-specific review status,https://openwebui.com
+Streamlit,Interactive data dashboard,bi_dashboard,high,Fast Python-first dashboard prototyping,No built-in product research schema or AI evaluation loop,https://streamlit.io
+Gradio,AI demo builder,export,medium,Fast ML demo sharing and UI generation,Limited product discovery and evidence management,https://www.gradio.app
+Notion AI,AI writing assistant,prd_generation,medium,Good general-purpose writing and summarization,Weak structured evidence tracking and product opportunity scoring,https://www.notion.so/product/ai
+Airtable,Structured tracking database,feedback_analysis,medium,Flexible tables and lightweight workflow tracking,Requires custom logic for AI topic clustering and PRD evaluation,https://www.airtable.com
+Jira Product Discovery,Opportunity tracking,prd_generation,medium,Strong product discovery and prioritization workflow,AI evaluation and evidence coverage are not first-class,https://www.atlassian.com/software/jira/product-discovery

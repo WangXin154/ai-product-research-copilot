@@ -221,3 +221,20 @@ __marimo__/
 database/*.db
 .env
 *.env
+# IDE
+.idea/
+
+# Generated outputs
+outputs/
+!outputs/.gitkeep
+
+# Local database
+database/*.db
+
+# Secrets
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc

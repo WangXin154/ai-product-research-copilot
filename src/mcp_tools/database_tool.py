@@ -124,6 +124,74 @@ def get_comment_summary(db_path: Path = DATABASE_PATH) -> dict[str, Any]:
     return query(sql, db_path=db_path)
 
 
+def get_topic_summary(db_path: Path = DATABASE_PATH) -> dict[str, Any]:
+    sql = """
+        SELECT
+            topic,
+            COUNT(*) AS feedback_count,
+            ROUND(AVG(confidence), 4) AS avg_confidence,
+            SUM(CASE WHEN sentiment = 'negative' THEN 1 ELSE 0 END) AS negative_count,
+            SUM(CASE WHEN sentiment = 'positive' THEN 1 ELSE 0 END) AS positive_count,
+            MAX(evidence_count) AS cluster_evidence_count
+        FROM feedback_topics
+        GROUP BY topic
+        ORDER BY feedback_count DESC, avg_confidence DESC
+    """
+    return query(sql, db_path=db_path)
+
+
+def get_topic_samples(limit: int = 10, db_path: Path = DATABASE_PATH) -> dict[str, Any]:
+    sql = """
+        SELECT
+            ft.topic,
+            ft.repo_name,
+            ft.sentiment,
+            ft.confidence,
+            ft.topic_keywords,
+            ft.topic_summary,
+            ft.user_need,
+            substr(ft.evidence_quote, 1, 240) AS evidence_preview,
+            rf.url
+        FROM feedback_topics ft
+        LEFT JOIN raw_feedback rf ON ft.feedback_id = rf.feedback_id
+        ORDER BY ft.confidence DESC, ft.created_at DESC
+        LIMIT ?
+    """
+    return query(sql, (limit,), db_path)
+
+
+def get_competitor_summary(db_path: Path = DATABASE_PATH) -> dict[str, Any]:
+    sql = """
+        SELECT
+            competitor_name,
+            COUNT(*) AS feature_count,
+            SUM(CASE WHEN coverage = 'high' THEN 1 ELSE 0 END) AS high_coverage_count,
+            SUM(CASE WHEN coverage = 'medium' THEN 1 ELSE 0 END) AS medium_coverage_count,
+            SUM(CASE WHEN coverage = 'low' THEN 1 ELSE 0 END) AS low_coverage_count,
+            GROUP_CONCAT(DISTINCT feature_category) AS feature_categories
+        FROM competitor_features
+        GROUP BY competitor_name
+        ORDER BY feature_count DESC, competitor_name
+    """
+    return query(sql, db_path=db_path)
+
+
+def get_competitor_matrix(db_path: Path = DATABASE_PATH) -> dict[str, Any]:
+    sql = """
+        SELECT
+            feature_category,
+            feature_name,
+            competitor_name,
+            coverage,
+            strength,
+            weakness,
+            source_url
+        FROM competitor_features
+        ORDER BY feature_category, feature_name, competitor_name
+    """
+    return query(sql, db_path=db_path)
+
+
 def get_feedback_samples(limit: int = 5, include_comments: bool = True, db_path: Path = DATABASE_PATH) -> dict[str, Any]:
     sql = """
         SELECT repo_name, issue_id, comment_id, title, substr(body, 1, 240) AS body_preview, url
@@ -159,6 +227,10 @@ def main() -> None:
     parser.add_argument("--stats", action="store_true", help="Print row counts for core tables.")
     parser.add_argument("--repo-summary", action="store_true", help="Print raw feedback counts by repo.")
     parser.add_argument("--comment-summary", action="store_true", help="Print comment counts by repo.")
+    parser.add_argument("--topic-summary", action="store_true", help="Print AI-discovered topic summary.")
+    parser.add_argument("--topic-samples", type=int, default=0, help="Print topic samples with evidence.")
+    parser.add_argument("--competitor-summary", action="store_true", help="Print competitor feature coverage summary.")
+    parser.add_argument("--competitor-matrix", action="store_true", help="Print competitor feature matrix rows.")
     parser.add_argument("--samples", type=int, default=0, help="Print raw feedback samples.")
     parser.add_argument("--db", default=str(DATABASE_PATH), help="SQLite database path.")
     args = parser.parse_args()
@@ -169,6 +241,14 @@ def main() -> None:
         print(json.dumps(get_repo_summary(Path(args.db)), ensure_ascii=False, indent=2))
     elif args.comment_summary:
         print(json.dumps(get_comment_summary(Path(args.db)), ensure_ascii=False, indent=2))
+    elif args.topic_summary:
+        print(json.dumps(get_topic_summary(Path(args.db)), ensure_ascii=False, indent=2))
+    elif args.topic_samples:
+        print(json.dumps(get_topic_samples(args.topic_samples, Path(args.db)), ensure_ascii=False, indent=2))
+    elif args.competitor_summary:
+        print(json.dumps(get_competitor_summary(Path(args.db)), ensure_ascii=False, indent=2))
+    elif args.competitor_matrix:
+        print(json.dumps(get_competitor_matrix(Path(args.db)), ensure_ascii=False, indent=2))
     elif args.samples:
         print(json.dumps(get_feedback_samples(args.samples, db_path=Path(args.db)), ensure_ascii=False, indent=2))
     else:

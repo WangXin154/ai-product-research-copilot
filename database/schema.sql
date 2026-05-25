@@ -1,4 +1,4 @@
-PRAGMA foreign_keys = ON;
+﻿PRAGMA foreign_keys = ON;
 
 CREATE TABLE IF NOT EXISTS raw_feedback (
     feedback_id TEXT PRIMARY KEY,
@@ -40,11 +40,18 @@ CREATE INDEX IF NOT EXISTS idx_cleaned_feedback_type ON cleaned_feedback(feedbac
 CREATE TABLE IF NOT EXISTS feedback_topics (
     topic_id TEXT PRIMARY KEY,
     feedback_id TEXT NOT NULL,
+    repo_name TEXT,
     topic TEXT NOT NULL,
+    topic_keywords TEXT,
+    topic_summary TEXT,
+    user_need TEXT,
+    cluster_id TEXT,
+    evidence_count INTEGER DEFAULT 1,
     sentiment TEXT,
     severity INTEGER,
     evidence_quote TEXT,
     confidence REAL,
+    analysis_method TEXT,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (feedback_id) REFERENCES raw_feedback(feedback_id)
 );
@@ -149,4 +156,5 @@ CREATE TABLE IF NOT EXISTS bi_metrics_daily (
 
 CREATE INDEX IF NOT EXISTS idx_bi_metrics_name_date ON bi_metrics_daily(metric_name, date);
 CREATE INDEX IF NOT EXISTS idx_bi_metrics_repo ON bi_metrics_daily(repo_name);
+
 
